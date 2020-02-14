@@ -1,0 +1,35 @@
+extends ../index.pug
+
+block content
+  link(rel="stylesheet", href="/css/home.css")
+
+  .webTitle
+    h3 数据看板
+
+  span.tableTitle 服务中公司信息
+  table
+    thead
+      tr
+        th 公司名称
+        th 合同周期
+        th 剩余天数
+    tbody
+      each item in customers
+        tr
+          td #{item.name}
+          -if(item.contract && item.contract.begin && item.contract.end)
+            td #{(new Date(item.contract.begin)).format('yyyy-MM-dd')}至#{(new Date(item.contract.end)).format('yyyy-MM-dd')}
+          -else
+            td
+          -if(item.contract && item.contract.end)
+            -let daysWord = '', days = Math.ceil(( (new Date(item.contract.end)).getTime() - (new Date()).getTime() ) / 1000 / 60 / 60 / 24)
+            -if(days<=0){
+              -daysWord = '合同已过期'
+            -}
+            -else{
+              -daysWord = '还剩' + days + '天'
+            -}
+            td #{daysWord}
+          -else
+            td
+          

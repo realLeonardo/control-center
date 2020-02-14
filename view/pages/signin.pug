@@ -1,0 +1,14 @@
+extends ../layout
+//- 主页
+block main
+  link(rel="stylesheet", href="/css/signin.css")
+
+  body
+    p.title #{title}
+
+    form#signinDiv(action="/signin", method="post", onsubmit="return false")
+      input(type="email", name="email", placeholder="请输入登录邮箱")
+      input(type="password", name="password", placeholder="请输入密码")
+      button#signinBtn.btn 登录
+
+    script(src="/js/signin.js")

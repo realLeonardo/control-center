@@ -1,0 +1,160 @@
+.webTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 2%;
+}
+
+.webTitle > .tools > button{
+  background-color: #5c66ff;
+  border: none;
+  color: white;
+  padding: 3px 8px;
+  margin-left: 10px;
+}
+
+.btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 2%;
+}
+.btns > .btn{
+  background-color: white;
+  border: none
+}
+.btns > .btnSeleted{
+  border-bottom: 2px solid black;
+  font-weight: bold;
+}
+
+.pageMain{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.companyItem{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 10px 0;
+  margin-left: 2%;
+  padding: 20px 20px;
+  width: 47%;
+  border: 1px solid lightgray;
+}
+
+.companyItem > div{
+  margin-top: 5px;
+}
+.companyItem > .title{
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+.companyItem > .title h2{
+  font-size: 20px;
+}
+.companyItem > .title > .left,
+.companyItem > .title > .right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.companyItem > .title > .right > .siteInfo{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 20px;
+  padding-right: 60px;
+  line-height: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px lightgray;
+  display: none;
+}
+.companyItem > .title > .right > .siteInfo > p{
+  margin-bottom: 5px;
+}
+.companyItem > .title > .right > .siteInfo > button{
+  padding: 5px 10px;
+  margin-top: 20px;
+}
+.companyItem > .buttons{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%
+}
+.companyItem button.btn{
+  margin-right: 10px;
+  font-size: 12px;
+  padding: 3px 10px;
+  background-color: #5c66ff;
+  color: white;
+  border: none;
+}
+
+.companyItem > .buttons button, .companyItem > .buttons a{
+  margin-right: 10px;
+  font-size: 12px;
+  padding: 3px 10px;
+  border: none;
+}
+
+.companyItem .description{
+  /* white-space: pre; */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.companyItem > .buttons  a{
+  margin-right: 0;
+  background-color: #5c66ff;
+  border: 1px solid #5c66ff;
+  color: white;
+}
+
+span.portText{
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #5c66ff;
+  border: 1px solid lightgray
+}
+img.icon{
+  width: 30px;
+  height: 30px;
+}
+img.wxCode{
+  width: 40px;
+  height: 40px;
+}
+img.bigWxCode{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+}
+
+.companyItem .productTag{
+  margin-left: 10px;
+  padding: 3px 20px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}

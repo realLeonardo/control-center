@@ -1,0 +1,36 @@
+/* 登录界面样式表 */
+
+body{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p.title{
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+#signinDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#signinDiv input{
+  padding: 5px 10px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+#signinDiv button{
+  padding: 5px 0;
+  width: 320px;
+}

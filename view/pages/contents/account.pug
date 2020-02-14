@@ -1,0 +1,68 @@
+extends ../index.pug
+
+block content
+  link(rel="stylesheet", href="/css/account.css")
+
+  .webTitle
+    h3 顾问团队
+
+    .tools
+      button.btn(onclick='toggleCreateUserModal()') 新增顾问
+
+  .usersMain
+    each item in users
+      .userDiv(onclick=`showEditUserModal('${item._id}')`)
+        .left
+          img.userAvatar(src=`${item.avatar}`, onerror="this.src = '/img/user.jpeg'")
+
+        .right
+          h3= item.name
+          p 邮箱：#{item.email}，电话：#{item.telephone?item.telephone:'空'}
+          p.introduction #{item.introduction?item.introduction:'TA还没有简介'}
+          p.job #{item.job}
+
+  .createUserModal
+    form.container(onsubmit="return false")
+      div.titleDiv
+        span.title 新增顾问
+        span.closeBtn(onclick="toggleCreateUserModal()") 关闭
+      div.inputs
+        .left
+          input(type='text', name='name', placeholder='姓名')
+          input(type='text', name='job', placeholder='职位')
+          input(type='text', name='telephone', placeholder='手机号')
+          input(type='text', name='email', placeholder='邮箱')
+          input(type='text', name='loginName', placeholder='登录名')
+          input.avatarInput(style="display: none", type='text', name='avatar', placeholder='avatar')
+          textarea(rows="6", name="introduction", placeholder='简介')
+        .right
+          img.avatar(src="/img/user.jpeg")
+          span(onclick="$('.createUserModal #avatarInput').click()") 职业形象照
+      button(onclick="createUser()") 提交
+    input#avatarInput(style="display: none", type='file', name='avatar', accept="image/*")
+
+
+  .editUserModal
+    form.container(onsubmit="return false")
+      div.titleDiv
+        span.title 编辑顾问
+        span.closeBtn(onclick="hideEditUserModal()") 关闭
+      div.inputs
+        .left
+          input.idInput(type='text', name='id', placeholder='_id', style="display: none")
+          input.nameInput(type='text', name='name', placeholder='姓名')
+          input.jobInput(type='text', name='job', placeholder='职位')
+          input.telephoneInput(type='text', name='telephone', placeholder='手机号')
+          input.emailInput(type='text', name='email', placeholder='邮箱')
+          input.loginNameInput(type='text', name='loginName', placeholder='登录名')
+          input.avatarInput(style="display: none", type='text', name='avatar', placeholder='avatar')
+          textarea.introductionInput(rows="6", name="introduction", placeholder='简介')
+        .right
+          img.avatar(src="")
+          span(onclick="$('.editUserModal #avatarInput').click()") 职业形象照
+      div.btns
+        button(onclick="changeUser()") 确定修改
+        button.deleteUserBtn(onclick="deleteUser()") 删除
+    input#avatarInput(style="display: none", type='file', name='avatar', accept="image/*")
+
+  script(src="/js/account.js")

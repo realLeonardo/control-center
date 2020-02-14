@@ -1,0 +1,83 @@
+extends ../index.pug
+
+block content
+  link(rel="stylesheet", href="/css/customer.css")
+  
+  div.main-container
+    div.left
+      div.customerInfo
+        .header
+          .left
+            p #{customer.name}
+              span.btn(onclick=`editCustomerInfo('${customer._id}', '${customer.creatorId}')`) 编辑
+          .right
+        p.description= customer.description
+        .products
+          span 关联产品
+            -for(let tag of customer.productsName)
+              span.productTag= tag
+
+      -var statusArray = ['新建', '需求沟通', '服务方案', '合同审批', '签约打款', '服务中', '合作取消']
+      div.companyInfo
+        p.title 公司资料
+          span.btn(onclick=`editCompanyInfo('${customer._id}')`) 编辑
+        p 公司介绍：#{customer.companyInfo.introduction}
+        div
+          p 公司官网：#{customer.companyInfo.website}
+          p 联系人：#{customer.companyInfo.contact}
+        div
+          p 主营产品：#{customer.companyInfo.products}
+          p 联系电话：#{customer.companyInfo.telephone}
+        p 公司地址：#{customer.companyInfo.address}
+        div
+          div(style="flex: 0 0 auto;") 相关材料：
+          div.files
+            each item in customer.words
+              -if(item.file && item.file.path && item.file.name)
+                div.file-div
+                  img(src="/img/file.svg")
+                  a(href=`${item.file.path}`)= item.file.name
+
+      div.logsInfo
+        span.title 沟通备注
+        form.word-form(action="/customer/addWord", enctype="multipart/form-data", method="post")
+          textarea.logInput(name="words")
+          div
+            input(type="file", name="file")
+            input(type="text", name="_id", value=`${customer._id}`, style="display: none")
+            button 保存
+
+        -customer.words.reverse()
+        each item in customer.words
+          div.word-div
+            p.title
+              span #{item.user} 
+              span #{(new Date(item.time)).format('yyyy年MM月dd日hh:mm')}
+              span.delete(onclick=`showDeleteWord('${customer._id}', '${item._id}')`) 删除
+
+            p.words #{item.words}
+            -if(item.file && item.file.path && item.file.name)
+              div.file-div
+                img(src="/img/file.svg")
+                a(href=`${item.file.path}`)= item.file.name
+
+    div.right
+      div.creator-div
+        div.creator-info
+          img.avatar(src=`${creator.avatar}`, onerror="this.src = '/img/user.jpeg'")
+          div
+            span.name= creator.name
+            span= creator.job
+            span= creator.telephone
+        div.buttons
+          button 生成合同
+          button 查看报表
+
+      div.history-div
+        h4 里程碑
+        -customer.logs.reverse()
+        each item in customer.logs
+          p #{item.user}于#{(new Date(item.time)).format('yyyy年MM月dd日hh:mm')}#{item.words}。
+
+  script(src="/js/customerInfo.js")
+  

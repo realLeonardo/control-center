@@ -1,0 +1,13 @@
+{
+  "apps": [{
+    "name": "control-center",
+    "script": "www.js",
+    "cwd": "/home/ruler/control-center/bin",
+    "exec_mode": "fork",
+    "max_memory_restart": "100M",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {}
+  }]
+}

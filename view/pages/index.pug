@@ -1,0 +1,48 @@
+extends ../layout
+//- 主页
+block main
+  link(rel="stylesheet", href="/css/index.css")
+  
+  body
+    #header
+      h2.title 交付中心
+
+    #container
+      #sider
+        ul
+          li.indexItem
+            a(href="/") 首页
+          li.customerItem
+            a(href="/customer") 客户
+          li.productItem
+            a(href="/product") 产品
+          li.siteItem
+            a(href="/site") ATS
+          -if(user.level == 1)
+            li.accountItem
+              a(href="/account") 顾问
+          li
+            a(href="/signin") 退出
+
+      #main
+        block content
+
+    script.
+      var pathName = location.pathname
+
+      if(pathName.indexOf('/customer')!=-1){
+        document.querySelector('li.customerItem').className = 'customerItem selected'
+      }
+      else if(pathName.indexOf('/product')!=-1){
+        document.querySelector('li.productItem').className = 'productItem selected'
+      }
+      else if(pathName.indexOf('/site')!=-1){
+        document.querySelector('li.siteItem').className = 'siteItem selected'
+      }
+      else if(pathName.indexOf('/account')!=-1){
+        document.querySelector('li.accountItem').className = 'accountItem selected'
+      }
+      else{
+        document.querySelector('li.indexItem').className = 'indexItem selected'
+      }
+      

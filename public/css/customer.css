@@ -1,0 +1,332 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 10px 2%;
+}
+
+.main-container>.right {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.main-container>.right>.history-div,
+.main-container>.right>.creator-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.creator-div>.creator-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.creator-div>.creator-info>img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.creator-div>.creator-info>div {
+  display: flex;
+  padding-left: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.creator-div>.creator-info>div>span {
+  padding-top: 5px;
+}
+
+.creator-div>.creator-info>div>span.name {
+  font-weight: bold;
+  padding-top: 0;
+}
+
+.creator-div>.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.creator-div>.buttons>button {
+  background-color: #5c66ff;
+  color: white;
+  font-weight: bold;
+  padding: 6px 20px;
+  border: none;
+  box-shadow: 0 3px 5px gray;
+}
+
+.creator-div>.buttons>button:first-child {
+  margin-right: 10px;
+}
+
+.history-div>h4 {
+  padding-top: 50px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-top: 1px solid gray;
+  text-align: center;
+}
+
+.history-div>p {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.main-container>.left {
+  display: flex;
+  max-width: 78%;
+  margin-right: 2%;
+  border-right: 1px solid gray;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 0 auto;
+  padding-bottom: 100px;
+}
+
+.customerInfo {
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+.customerInfo>.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.customerInfo>.header>.left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.customerInfo>.header>.right {
+  margin-right: 10%;
+}
+
+.description {
+  padding-right: 10%;
+  padding-bottom: 20px;
+  white-space: pre-wrap;
+}
+
+.products>span>span {
+  margin-left: 10px;
+  padding: 5px 20px;
+  border: 1px solid #5C66FF;
+  border-radius: 5px;
+}
+
+.companyInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.companyInfo>.title {
+  font-size: 16px;
+  font-weight: bold;
+  border-left: 5px solid #5c66ff;
+  padding: 0px 10px;
+  margin: 10px 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.companyInfo>* {
+  padding: 10px 20px;
+}
+
+.companyInfo>div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.files{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 90%;
+}
+.files > .file-div{
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+.companyInfo>div>p {
+  width: 40%;
+}
+
+.logsInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.logsInfo>.title {
+  font-size: 16px;
+  font-weight: bold;
+  border-left: 5px solid #5c66ff;
+  padding: 0px 10px;
+  margin: 10px 0;
+  margin-top: 20px;
+}
+
+.logsInfo>.word-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.word-form>textarea {
+  width: 80%;
+  height: 120px;
+  margin: 5px 0;
+  margin-left: 2%;
+  box-sizing: border-box;
+  padding: 10px 10px;
+  line-height: 20px;
+}
+
+.word-form>div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+}
+
+.word-form button {
+  margin: 5px 20px;
+  margin-right: 18%;
+  padding: 6px 30px;
+  background-color: #5c66ff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn {
+  padding: 3px 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: #5c66ff;
+  color: white;
+  font-weight: normal;
+  border: none;
+}
+
+.file-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.file-div>img {
+  height: 16px;
+  width: 16px;
+}
+
+.file-div>a {
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.word-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 20px;
+  margin-top: 20px;
+}
+
+.word-div>.words {
+  white-space: pre-wrap;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.word-div>.title {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.word-div>.title>span{
+  margin-right: 6px;
+}
+.word-div>.title>.delete{
+  display: none;
+}
+.word-div>.title:hover .delete{
+  display: inline;
+}
+
+.word-div > .file-div{
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.danger-btn{
+  border: none;
+  padding: 5px 10px;
+  margin: 10px 0;
+  align-self: center;
+}
+
+.checkbox-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.checkbox-group > label{
+  line-height: 20px;
+  margin-right: 10px;
+  margin-top: 5px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}

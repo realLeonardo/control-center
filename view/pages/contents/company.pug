@@ -1,0 +1,13 @@
+extends ../index.pug
+
+block content
+  h3= title
+
+  .companyContainer
+  
+  script.
+    window.sites= !{sites}
+
+  script(src="/js/jquery.min.js")
+  script(src="/js/company.js")
+  

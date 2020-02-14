@@ -1,0 +1,110 @@
+extends ../index.pug
+
+block content
+  link(rel="stylesheet", href="/css/site.css")
+  
+  div.webTitle
+    h3 客户管理
+
+    -if(user.level==1)
+      .tools
+        button.btn(onclick='showCreateCustomer()') 新建客户
+
+  .btns(style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;")
+    button.btn(onclick="showPage('.allMain', this)") 全部
+    button.btn(onclick="showPage('.customerMain', this)") 服务中
+    button.btn(onclick="showPage('.reviewMain', this)") 合同审核中
+    button.btn(onclick="showPage('.programMain', this)") 提交方案中
+
+  -var statusWords = ['新建', '需求沟通', '服务方案', '合同审批', '签约打款', '服务中', '合作取消'];
+
+  .allMain.pageMain
+    -customers.reverse()
+    each item in customers
+      div.companyItem
+        div.title
+          div.left
+            h2= item.name
+            span(style="margin-left: 10px") (#{statusWords[item.status]})
+          div.right
+            span #{item.creator}创建
+        
+        //- p.description= item.description
+        
+        div.buttons
+          .left
+            p 关联产品
+              -for(let tag of item.productsName)
+                  span.productTag= tag
+
+          .right
+            a.btn(href=`/customer/${item._id}` target='_block') 查看详情
+
+  .customerMain.pageMain
+    each item in customers
+      -if(item.status == 5)
+        div.companyItem
+          div.title
+            div.left
+              h2= item.name
+              span(style="margin-left: 10px") (#{statusWords[item.status]})
+            div.right
+              span #{item.creator}创建
+          
+          //- p.description= item.description
+          
+          div.buttons
+            .left
+              p 关联产品
+                -for(let tag of item.productsName)
+                  span.productTag= tag
+
+            .right
+              a.btn(href=`/customer/${item._id}` target='_block') 查看详情
+  
+  .reviewMain.pageMain
+    each item in customers
+      -if(item.status == 3)
+        div.companyItem
+          div.title
+            div.left
+              h2= item.name
+              span(style="margin-left: 10px") (#{statusWords[item.status]})
+            div.right
+              span #{item.creator}创建
+          
+          //- p.description= item.description
+          
+          div.buttons
+            .left
+              p 关联产品
+                -for(let tag of item.productsName)
+                  span.productTag= tag
+
+            .right
+              a.btn(href=`/customer/${item._id}` target='_block') 查看详情
+  
+  .programMain.pageMain
+    each item in customers
+      -if(item.status == 2)
+        div.companyItem
+          div.title
+            div.left
+              h2= item.name
+              span(style="margin-left: 10px") (#{statusWords[item.status]})
+            div.right
+              span #{item.creator}创建
+          
+          //- p.description= item.description
+          
+          div.buttons
+            .left
+              p 关联产品
+                -for(let tag of item.productsName)
+                  span.productTag= tag
+
+            .right
+              a.btn(href=`/customer/${item._id}` target='_block') 查看详情
+  
+  script(src="/js/customer.js")
+  

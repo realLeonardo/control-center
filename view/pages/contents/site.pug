@@ -1,0 +1,40 @@
+extends ../index.pug
+
+block content
+  link(rel="stylesheet", href="/css/site.css")
+  
+  div.webTitle
+    h3= title
+
+    -if(user.level==1)
+      .tools
+        button.btn(onclick='createSite()') 创建ATS
+
+  .siteMain.pageMain
+    each item in sites
+      div.companyItem
+        div.title
+          div.left
+            h2= item.name
+          div.right
+            //- img.wxCode(src=`${item.wxcode}`, onclick=`showWxcode(this)`, alt="暂无二维码")
+            div.siteInfo
+              p 站点名称：#{item.name}
+              p 站点管理员：#{item.admin.email || ''}
+              p 类型：#{item.kind == 0?'私有':'公共'}
+              button(onclick=`editSite('${item._id}')`) 编辑
+              
+            img.icon(src=`/img/公司简介.png`)
+        
+        //- div.description(onclick=`fetchJobList(this, '${item.url}')`)
+        div.buttons
+          .left
+            -if(user.level==1)
+              //- button.btn(onclick=`restart('${item.dbName}')`) 重启
+              //- button.btn(onclick=`stop('${item.dbName}')`) 停止 
+
+          .right
+            a.btn(href=`${item.url}/api/crossOriginSignin?url=controlcenter`, target='_block') 直接进入
+
+  script(src="/js/site.js")
+  

@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+    title 交付中心-#{title}
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    include ./components/header
+
+    block main
+    -Date.prototype.format = function (fmt) {
+      -let o = {"M+": this.getMonth() + 1, "d+": this.getDate(), "h+": this.getHours(), "m+": this.getMinutes(), "s+": this.getSeconds(), "q+": Math.floor((this.getMonth() + 3) / 3), "S": this.getMilliseconds() };
+      -if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+      -for (let k in o)
+          -if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+      -return fmt;
+    -};
+
+    //- include ./components/modalDiv

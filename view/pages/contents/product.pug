@@ -1,0 +1,82 @@
+extends ../index.pug
+
+block content
+  link(rel="stylesheet", href="/css/site.css")
+  
+  div.webTitle
+    h3= title
+    
+    -if(user.level==1)
+      .tools
+        button.btn(onclick='createProduct()') 新建产品
+
+  .btns(style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;")
+    button.btn(onclick="showPage('.status1', this)") 销售阶段
+    button.btn(onclick="showPage('.status2', this)") 研发阶段
+    button.btn(onclick="showPage('.status3', this)") 创新产品
+
+  -var status1Product = [], status2Product = [], status3Product = []
+  -for(let item of products){
+    -if(item.status == 1)
+      -status1Product.push(item)
+    -else if(item.status == 2)
+      -status2Product.push(item)
+    -else if(item.status == 3)
+      -status3Product.push(item)
+  -}
+  .status1.pageMain
+    -if(status1Product.length == 0)
+      p(style="margin-left: 30px;") 无数据
+    each item in status1Product
+      div.companyItem
+        div.title
+          div.left
+            h2= item.name
+          div.right
+            button.btn(onclick=`editProduct('${item._id}')`) 编辑
+        
+        div.description
+          p= item.description
+        div.buttons
+          .left
+            p 收费：#{item.cost}
+          .right
+            
+  .status2.pageMain
+    -if(status2Product.length == 0)
+      p(style="margin-left: 30px;") 无数据
+    each item in status2Product
+      div.companyItem
+        div.title
+          div.left
+            h2= item.name
+          div.right
+            button.btn(onclick=`editProduct('${item._id}')`) 编辑
+        div.description
+          p= item.description
+        div.buttons
+          .left
+            p 收费：#{item.cost}
+          .right
+
+  .status3.pageMain
+    -if(status3Product.length == 0)
+      p(style="margin-left: 30px;") 无数据
+    each item in status3Product
+      div.companyItem
+        div.title
+          div.left
+            h2= item.name
+          div.right
+            button.btn(onclick=`editProduct('${item._id}')`) 编辑
+        div.description
+          p= item.description
+        div.buttons
+          .left
+            p 收费：#{item.cost}
+
+          .right
+  
+
+  script(src="/js/product.js")
+  
